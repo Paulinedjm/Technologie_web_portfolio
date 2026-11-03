@@ -17,6 +17,11 @@ export function Navbar(){
                     Mon CV
                     </a>
                 </li>
+                <li>
+                    <a href="/todo" className="hover:text-gray-400  hover:bg-gray-100">
+                    To-Do list
+                    </a>
+                </li>
             </ul>
         </nav>
     )
