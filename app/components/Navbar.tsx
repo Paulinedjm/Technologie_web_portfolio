@@ -22,6 +22,11 @@ export function Navbar(){
                     To-Do list
                     </a>
                 </li>
+                                <li>
+                    <a href="/blog" className="hover:text-gray-400  hover:bg-gray-100">
+                    Blog
+                    </a>
+                </li>
             </ul>
         </nav>
     )

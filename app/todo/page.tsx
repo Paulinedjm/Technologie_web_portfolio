@@ -1,4 +1,4 @@
-import { getTasks } from "@/lib/tasks";
+import { deleteTask, getTasks } from "@/lib/tasks";
 import { createTask } from "@/lib/tasks";
 
 export default async function (){
@@ -7,13 +7,23 @@ export default async function (){
         <section>
             <h1 className= "text-2xl text-green-800">Mes tâches</h1>
             <ul className="list-disc list-inside">
-                {tasks.map( (task) => (
-                    <li>{task}</li>
+                {tasks.map((task, index) => (
+                    <li key={index} className="flex items-center justify-between gap-4">
+                        <span>{task}</span>
+                        
+                        {/* Formulaire de suppression pour chaque tâche */}
+                        <form action={deleteTask}>
+                            <input type="hidden" name="taskName" value={task} />
+                            <button className="text-red-600 hover:underline text-sm">
+                                Supprimer
+                            </button>
+                        </form>
+                    </li>
                 ))}
             </ul>
 
             <form action={createTask}>
-                Tâche: <input name="bonjour_lur" />
+                Tâche: <input name="title" />
                 <button>Ajouter</button>
             </form>
         </section>

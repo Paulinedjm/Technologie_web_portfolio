@@ -1,10 +1,10 @@
+//lib/tasks
+
 "use server";
 
 import { cacheTag, updateTag } from "next/cache";
-import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
 
-const tasks: { title: string; done: boolean; } [] = [];
+const tasks: string [] = ["apprendre Async/awaite", "ecouter mehdi"];
 
 export async function getTasks() {
     "use cache";
@@ -13,17 +13,19 @@ export async function getTasks() {
 }
 
 export async function createTask(form: FormData) {
-    const task = form.get("bonjour_lur")?.toString();
+    const task = form.get("title")?.toString();
     if (task) {
-        tasks.push({
-            title: String(form.get('title')),
-            done: false,
-        })
-    updateTag("tasks")
+        tasks.push(task);
     }
+    updateTag("tasks")
 }
 
-export async function deleteTask(id: number) {
-  tasks.splice(id, 1)
-  redirect((await headers()).get('referer') ?? '/')
+export async function deleteTask(form: FormData) {
+    const taskToDelete = form.get("taskName")?.toString();
+    const index = tasks.indexOf(taskToDelete!);
+    if (index > -1) {
+        tasks.splice(index, 1);
+    }
+    updateTag("tasks");
 }
+
