@@ -5,7 +5,7 @@ export default async function (){
     const tasks = await getTasks();
     return (
         <section>
-            <h1 className= "text-2xl text-green-800">Mes tâches</h1>
+            <h1 className= "text-2xl text-blue-800">Mes tâches</h1>
             <ul className="list-disc list-inside">
                 {tasks.map((task, index) => (
                     <li key={index} className="flex items-center justify-between gap-4">

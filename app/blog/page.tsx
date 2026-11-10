@@ -6,7 +6,7 @@ export default async function BlogPage() {
     const posts = await getPosts();
     return (
         <section>
-            <h1 className="text-2xl text-green-800">Mon blog</h1>
+            <h1 className="text-2xl text-blue-800">Mon blog</h1>
 
             <Link href="/blog/new" className="text-blue-600 hover:underline">
                 + Nouvel article

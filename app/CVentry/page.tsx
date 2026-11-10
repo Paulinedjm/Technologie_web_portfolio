@@ -1,8 +1,11 @@
 function Section(props: {title:string, children:React.ReactNode}) {
     return (
     <div className="mb-6">
-        <h2 className="font-bold text-blue-900 text-lg uppercase tracking-wider border-b-2 border-blue-100 pb-1 mb-3">{props.title}</h2>
+        <h2 className="font-bold text-blue-900 text-lg uppercase tracking-wider border-b-2 border-blue-100 pb-1 mb-3">
+            {props.title}
+        </h2>
         {props.children}
+        
     </div>
     )
 }
