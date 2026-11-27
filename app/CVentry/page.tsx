@@ -1,3 +1,5 @@
+//app/CVentry/page.tsx
+
 function Section(props: {title:string, children:React.ReactNode}) {
     return (
     <div className="mb-6">

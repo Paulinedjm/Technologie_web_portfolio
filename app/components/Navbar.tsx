@@ -1,6 +1,6 @@
 export function Navbar(){
     return(
-        <nav className="bg-gray-800 text-white p-4">
+        <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
             <ul className = "flex space-x-4">
                 <li>
                     <a href="/" className = "hover:text-gray-400 hover:bg-gray-100">
@@ -28,6 +28,16 @@ export function Navbar(){
                     </a>
                 </li>
             </ul>
+
+            <ul className="flex space-x-4">
+                <li>
+                    <a href="/login" className="hover:text-gray-400 hover:bg-gray-100"> Log in</a>
+                </li>
+                <li>
+                    <a href="/register" className="hover:text-gray-400 hover:bg-gray-100">Sign up</a>
+                </li>
+           </ul>
+
         </nav>
     )
 }
