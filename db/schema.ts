@@ -1,6 +1,7 @@
 //db/schema.ts
 
-import { boolean, pgTable, text, uuid } from 'drizzle-orm/pg-core'
+import { timestamp } from 'drizzle-orm/cockroach-core'
+import { boolean, pgTable, text, uuid, serial } from 'drizzle-orm/pg-core'
 
 export const tasksTable = pgTable('tasks', {
   id: uuid().defaultRandom().primaryKey(),
@@ -15,3 +16,10 @@ export const usersTable = pgTable('users', {
   password: text().notNull(),
 })
 
+
+export const postsTable = pgTable('posts', {
+  id: serial().primaryKey(),
+  title: text().notNull(),
+  content: text().notNull(),
+  createdAt: timestamp().defaultNow().notNull(),
+})
